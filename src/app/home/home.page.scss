@@ -25,3 +25,58 @@
 #container a {
   text-decoration: none;
 }
+
+ion-content.home-content{
+  --background: url("../../assets/background.jpg") 0 0/100% 100% no-repeat;
+}
+
+ion-col{
+  --background: white;
+}
+
+ion-item.text-center::part(native) .item-inner .input-wrapper{
+  justify-content: center;
+}
+
+.ion-text-center{
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  
+  ion-img{
+    width: 132px;
+    margin: 42px 0 24px;
+  }
+}
+
+ion-item.item-control{
+  margin: 0 24px;
+
+  ion-label{
+    --color: #8c8c8c;
+  }
+}
+
+ion-item.item-control-toggle{
+  margin: 0 12px;
+}
+
+ion-button.btn-desktop{
+  --color: #000000;
+}
+
+@media (width < 768px) {
+  #container {
+    top: 25%;
+  }
+
+  ion-button.btn-mobile{
+    height: 56px;
+    margin: 0;
+  }
+
+  ion-list{
+    padding: 0;
+  }
+}
