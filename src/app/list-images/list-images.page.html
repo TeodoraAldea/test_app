@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Listado de imagenes</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar placeholder="Filtrar" (ionInput)="onSearch($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of items; let index ">
+      <ion-avatar slot="start">
+        <img [src]="item.photo" alt="avatar" />
+      </ion-avatar>
+      <ion-label>{{ item.text }}</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll *ngIf="allItems.length <= 4000" (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

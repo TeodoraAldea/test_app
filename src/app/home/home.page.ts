@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
 @Component({
@@ -12,7 +13,8 @@ export class HomePage implements OnInit {
   public form!: FormGroup<any>;
 
   constructor(private _fb: FormBuilder,
-              private alertController: AlertController) {}
+              private alertController: AlertController,
+              private router: Router) {}
 
   ngOnInit(): void {
     this.form = this._fb.group({
@@ -25,6 +27,7 @@ export class HomePage implements OnInit {
   onAccept(){
     if (!this.form.invalid){
       console.log('OK');
+      this.navigate();
     } else {
       this.openAlert();
     }
@@ -53,4 +56,7 @@ export class HomePage implements OnInit {
     alert.present();
   }
 
+  private navigate(){
+    this.router.navigate(['/list-images'])
+  }
 }
